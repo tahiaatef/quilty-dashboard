@@ -1,0 +1,106 @@
+.app-layout-msa{
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8; 
+  flex-direction: row-reverse; /* عشان الـ Sidebar يجي على اليمين أولاً في الـ DOM */
+}
+.content-area-msa {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.content-area-msa h2 {
+  text-align: center;
+  color: #98C379; /* لون أغمق قليلاً للأخضر */
+  font-size: 2.5rem; /* حجم أكبر للعنوان */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #98C379; /* لون أفتح للحد */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل أنعم */
+}
+
+/* صندوق البحث */
+.search-box {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-left: 800px;
+}
+
+.search-box input[type="date"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.search-box button {
+  padding: 0.5rem 1.5rem;
+  background-color: #98C379;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+  background-color: #1b5e20;
+}
+
+
+
+
+/* تصميم كارت تحليل الرطوبة */
+.moisture-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  overflow: auto;
+  border-left: 5px solid #98C379;
+}
+
+.moisture-card p:first-child {
+  color: #6c757d; /* لون التاريخ */
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dee2e6; /* خط فاصل */
+  padding-bottom: 10px;
+}
+
+.moisture-card .section {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #f8f9fa; /* حدود خفيفة للأقسام */
+  border-radius: 6px;
+  background-color: #f8f9fa; /* خلفية أفتح للأقسام */
+  width: 40%;
+  float: left;
+  margin-right: 70px; /* مسافة بين الأقسام */
+}
+
+.moisture-card .section h4 {
+  color: #98c379; /* لون عناوين الأقسام */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.moisture-card .section p {
+  color: #495057; /* لون نصوص الأقسام */
+  margin-bottom: 5px;
+  font-size: 0.95em;
+}
+
+.moisture-card .section p strong {
+  font-weight: bold;
+  color: #343a40;
+  margin-right: 5px;
+}

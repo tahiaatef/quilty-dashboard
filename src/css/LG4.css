@@ -1,0 +1,102 @@
+/* الصفحة كلها */
+.app-layout {
+  display: flex;
+  background-color: #f4f6f8;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+/* المحتوى الرئيسي */
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* عنوان الصفحة */
+.content-area h2 {
+  text-align: center;
+  color: #98C379; /* لون أغمق قليلاً للأخضر */
+  font-size: 2.5rem; /* حجم أكبر للعنوان */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #98C379; /* لون أفتح للحد */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل أنعم */
+}
+
+/* مربع البحث */
+.content-area .flex {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* حقل التاريخ */
+.content-area input[type="date"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-right: 1rem;
+  margin-left: 750px;
+}
+
+/* زر البحث */
+.content-area button {
+  padding: 0.5rem 1.2rem;
+  background-color: #98C379;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content-area button:hover {
+  background-color: #1b5e20;
+}
+
+/* رسالة لا توجد بيانات */
+.content-area p {
+  text-align: center;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+/* تنسيق الجدول */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 128, 0, 0.08);
+}
+
+/* رأس الجدول */
+thead {
+  background-color: #e8f5e9;
+}
+
+thead th {
+  padding: 1rem;
+  font-weight: bold;
+  color: #2e7d32;
+  border-bottom: 2px solid #c8e6c9;
+}
+
+/* بيانات الجدول */
+tbody td {
+  padding: 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* سطر سطر بالتناوب */
+tbody tr:nth-child(even) {
+  background-color: #f1f8f4;
+}

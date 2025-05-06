@@ -1,0 +1,292 @@
+/* 
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row-reverse; 
+}
+
+.content-area {
+  flex-grow: 1;
+  padding: 20px; 
+  background-color: white;
+}
+
+
+.dashboard-header {
+  background-color: #f0f8ea; 
+  color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #8bc34a; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 100px;
+}
+
+.dashboard-title {
+  font-family: 'Roboto Slab', serif; 
+  font-size: 2.2em;
+  margin: 0;
+  color: #4caf50; 
+}
+
+.today {
+  font-size: 1.1em;
+  color: #777;
+}
+
+.btn-download button {
+  background-color: #98C379; 
+  color: white;
+  border: 1px solid #98C379;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-download button:hover {
+  background-color: white;
+  color: #b4e193;
+}
+
+.latest-activities{
+  font-size: 1.5em;
+  padding: 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #404040;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  
+} */
+
+/* تأكد من استيراد الخط إذا كنت تستخدم خطًا مخصصًا */
+/* يمكنك إضافة هذا في ملف CSS أو في رأس ملف HTML: */
+/* <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet"> */
+
+
+
+/* dash.css */
+.app-layout {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Sidebar عرض ثابت والمحتوى ياخد الباقي */
+  min-height: 100vh;
+
+}
+
+.sidebar {
+  background-color: #f4fbf6; /* لون أفتح للـ Sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* لو حابة تحطي اللوجو أو عناصر في النص */
+}
+
+.content-area {
+  padding: 30px;
+  background-color: #fff;
+}
+
+.dashboard-header {
+  background-color: #e8f5e9; /* لون أفتح شوية للهيدر */
+  color: #388e3c; /* لون أغمق شوية للعنوان */
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #81c784; /* خط سفلي أقوى */
+  margin-bottom: 40px;
+  border-radius: 8px; /* حواف مدورة للهيدر */
+}
+
+.logo {
+  /* تنسيقات اللوجو لو محتاجة */
+}
+
+.logo-image {
+  height: 50px; /* مثال لحجم اللوجو */
+}
+
+.dashboard-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* خط عصري */
+  font-size: 2.5em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.today {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.btn-download-container {
+  /* لتنظيم مكان الزر لو احتجنا */
+}
+
+.btn-download-button {
+  background-color: #4caf50; /* لون أخضر مميز للزر */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* ظل للزر */
+}
+
+.btn-download-button:hover {
+  background-color: #43a047;
+}
+
+.latest-activities-title {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+  font-weight: 600;
+}
+
+.dashboard-section {
+  margin-bottom: 25px;
+}
+
+.dashboard-section-title {
+  font-size: 1.5em;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden; 
+}
+
+.data-table thead {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.data-table th, .data-table td {
+  padding: 12px 15px;
+  text-align: right; 
+  border-bottom: 1px solid #eee;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f0f0f0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.no-data {
+  color: #777;
+  font-style: italic;
+}
+
+/* تنسيقات إضافية لو محتاجين رسوم بيانية أو أيقونات */
+/* .icon { ... } */
+/* .chart-container { ... } */
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+  .app-layout {
+      grid-template-columns: 1fr; /* Sidebar ياخد السطر كله على الموبايل */
+  }
+  .sidebar {
+      order: 2; /* يجي بعد المحتوى على الموبايل لو عايزة */
+      /* ممكن تعملي زرار يفتح ويقفل الـ Sidebar على الموبايل */
+      width: 100%;
+  }
+  .content-area {
+      padding: 20px;
+  }
+  .dashboard-header {
+      flex-direction: column;
+      align-items: flex-end; /* محاذاة العناصر على اليمين على الموبايل */
+      margin-bottom: 30px;
+  }
+  .dashboard-title {
+      font-size: 2em;
+      margin-bottom: 10px;
+  }
+  .btn-download-container {
+      margin-top: 15px;
+  }
+}
+
+
+/* ظظظظظظظظظظظظظظظظظظظظظظظظظ */
+
+/* ... other styles ... */
+
+.moisture-analyses-section {
+  overflow-x: auto; /* Keep this in case the content within each item is wide */
+}
+
+.moisture-analyses-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  gap: 20px; /* Spacing between analysis items */
+  margin-top: 10px; /* Add some top margin */
+}
+
+.moisture-analysis-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.analysis-date-time {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.analysis-data {
+  display: flex;
+  flex-direction: column; /* Arrange data pairs vertically */
+}
+
+.data-pair {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  align-items: flex-start; /* Align label and value at the start */
+}
+
+.data-label {
+  font-weight: bold;
+  color: #333;
+  min-width: 150px; /* Ensure labels have enough width */
+}
+
+.data-value {
+  color: #666;
+  word-break: break-word; /* Prevent long values from breaking the layout */
+}

@@ -1,0 +1,66 @@
+/* الصفحة كلها */
+.app-layout {
+  display: flex;
+  background-color: #f4f6f8;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+/* المحتوى الرئيسي */
+.content-lg425 {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* عنوان الصفحة */
+.content-lg425 h2 {
+  text-align: center;
+  color: #98C379; /* لون أغمق قليلاً للأخضر */
+  font-size: 2rem; /* حجم أكبر للعنوان */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #98C379; /* لون أفتح للحد */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل أنعم */
+}
+
+/* مربع البحث */
+.content-lg425 .flex {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* حقل التاريخ */
+.content-lg425 input[type="date"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-right: 1rem;
+  margin-left: 750px;
+}
+
+/* زر البحث */
+.content-lg425 button {
+  padding: 0.5rem 1.2rem;
+  background-color: #98C379;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content-lg425 button:hover {
+  background-color: #1b5e20;
+}
+
+/* رسالة لا توجد بيانات */
+.content-lg425 p {
+  text-align: center;
+  color: #999;
+  font-size: 1.1rem;
+}

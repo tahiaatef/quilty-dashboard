@@ -1,0 +1,116 @@
+/* تصميم عام للصفحة */
+.app-layout-ncr {
+  display: flex;
+  background-color: #f4f6f8; /* لون خلفية فاتح للصفحة */
+  min-height: 100vh; /* عشان الخلفية تغطي الصفحة كلها */
+}
+
+.content-area-ncr {
+  flex-grow: 1;
+  padding: 30px;
+}
+
+.content-area-ncr h2 {
+  text-align: center;
+  color: #98C379; /* لون أغمق قليلاً للأخضر */
+  font-size: 2.5rem; /* حجم أكبر للعنوان */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #98C379; /* لون أفتح للحد */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل أنعم */
+}
+
+/* تصميم صندوق البحث */
+.search-box-ncr {
+  display: flex;
+  gap: 10px; /* مسافة بين العناصر في صندوق البحث */
+  margin-bottom: 20px;
+  align-items: center; /* محاذاة رأسية للعناصر */
+  margin-left: 900px;
+}
+
+.search-box-ncr input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.search-box-ncr button {
+  background-color: #98C379; /* لون أزرق جذاب */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease; /* تأثير عند الـ Hover */
+}
+
+.search-box-ncr button:hover {
+  background-color: #51bb41b7;
+}
+
+/* تصميم كارت البلاغ */
+.report-card-ncr {
+  background-color: white;
+  border-radius: 12px; /* حواف مدورة أكتر */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* ظل أقوى وأكثر نعومة */
+  margin-bottom: 25px;
+  padding: 20px;
+  overflow: hidden;
+  overflow: auto;
+  border-left: 5px solid #98C379; /* خط جانبي مميز */
+}
+
+.report-card-ncr .report-ddata-ncr {
+  flex-grow: 1;
+  padding-right: 20px;
+
+}
+
+.report-card-ncr .report-ddata-ncr p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.report-card-ncr .report-ddata-ncr p strong {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
+}
+
+.report-card-ncr .card-header-ncr {
+  color: #777;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  width: 100%;
+  
+}
+.report-ddata-ncr{
+  float: left;
+}
+.image-box-ncr {
+  width: 250px; /* حجم أصغر شوية للصورة */
+  height: 250px;
+  border-radius: 8px;
+  float: right;
+  overflow: hidden;
+  margin-left: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  text-align: center;
+  
+}
+
+.report-img-ncr {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* لو مفيش صورة */
+.report-card-ncr:not(:has(.image-box-ncr)) .report-ddata-ncr {
+  padding-right: 0;
+}

@@ -1,0 +1,11 @@
+/* styles.css */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row-reverse; /* عشان الـ Sidebar يجي على اليمين أولاً في الـ DOM */
+}
+
+.content-area {
+  flex-grow: 1;
+  background-color: white;
+}

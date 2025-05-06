@@ -1,0 +1,12 @@
+
+
+.page-title {
+  text-align: center;
+  color: #98C379; /* لون أغمق قليلاً للأخضر */
+  font-size: 2rem; /* حجم أكبر للعنوان */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #98C379; /* لون أفتح للحد */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل أنعم */
+}
