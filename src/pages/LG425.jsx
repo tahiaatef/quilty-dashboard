@@ -12,9 +12,9 @@ function Lg4_25Page() {
   // const [currentDateData, setCurrentDateData] = useState([]);
 
   const fetchData = async (date) => {
-    let apiUrl = 'http://localhost:5000/api/lg4_25/all';
+    let apiUrl = 'http://18.197.69.165:5000/api/lg4_25/all';
     if (date) {
-      apiUrl = `http://localhost:5000/api/lg4_25/search?date=${date}`;
+      apiUrl = `http://18.197.69.165:5000/api/lg4_25/search?date=${date}`;
     }
 
     try {

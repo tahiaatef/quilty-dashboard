@@ -10,7 +10,7 @@ function Lg4Page() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/lg4/lg4-data');
+      const res = await axios.get('http://18.197.69.165:5000/api/lg4/lg4-data');
       console.log("Fetch Data Response:", res.data);
       setData(res.data);
     } catch (err) {
@@ -21,7 +21,7 @@ function Lg4Page() {
   const searchData = async () => {
     console.log("Searching for date:", searchDate);
     try {
-      const res = await axios.get(`http://localhost:5000/api/lg4/lg4-data/search?date=${searchDate}`);
+      const res = await axios.get(`http://18.197.69.165:5000/api/lg4/lg4-data/search?date=${searchDate}`);
       console.log("Search Data Response:", res.data); 
       setData(res.data.data);
     } catch (err) {

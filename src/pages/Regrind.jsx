@@ -15,7 +15,7 @@ const RegrindPage = () => {
 
   const fetchAllRegrinds = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/Regrind/all");
+      const res = await axios.get("http://18.197.69.165:5000/api/Regrind/all");
       setRegrinds(res.data.data);
     } catch (err) {
       console.error("Error fetching regrinds:", err);
@@ -27,7 +27,7 @@ const RegrindPage = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/Regrind/search?searchTerm=${searchDate}`
+        `http://18.197.69.165:5000/api/Regrind/search?searchTerm=${searchDate}`
       );
       setRegrinds(res.data.data);
     } catch (err) {
@@ -98,6 +98,12 @@ const RegrindPage = () => {
                       Lasagna:
                     </span>{" "}
                     <span className="font-medium text-green-700">{item.lasagna}</span>
+                  </li>
+                  <li>
+                    <span className="font-medium text-green-800">
+                    Total Regrind:
+                    </span>{" "}
+                    <span className="font-medium text-green-700">{item.totalRegrind}</span>
                   </li>
                 </ul>
               </div>

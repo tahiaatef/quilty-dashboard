@@ -7,12 +7,26 @@ function DashboardPage() {
   const [nonConformanceReports, setNonConformanceReports] = useState([]);
   const [regrindData, setRegrindData] = useState([]);
   const [moistureAnalyses, setMoistureAnalyses] = useState([]);
+  const [visualChecks, setVisualChecks] = useState([]);
   const [lg4Data, setLg4Data] = useState([]);
   const [lg4_25Data, setLg4_25Data] = useState([]);
   const [sg4Data, setSg4Data] = useState([]);
   const [sg6Data, setSg6Data] = useState([]);
+  const [rejectionWeights1Data, setRejectionWeights1Data] = useState([]);
+    const [rejectionWeights2Data, setRejectionWeights2Data] = useState([]);
   const today = new Date().toISOString().split('T')[0]; // تنسيق تاريخ اليوم YYYY-MM-DD
-
+    
+  const types = ['lg4', 'lg4_25', 'sg4', 'sg6', 'lasghna'];
+  const checkListItems = [
+    'apparentContamination',
+    'cracksAndCracks',
+    'whiteSpots',
+    'homogeneity',
+    'sectionAndShape',
+    'visualColor'
+  ];
+  
+  
   useEffect(() => {
     // دوال لجلب البيانات من كل endpoint وتصفيتها حسب تاريخ اليوم
     const fetchAndFilter = async (url, setData, dateField) => {
@@ -32,15 +46,19 @@ function DashboardPage() {
     };
 
     // استدعاء دوال جلب البيانات
-    fetchAndFilter('http://localhost:5000/api/shift/shifts', setShifts, 'createdAt');
-    fetchAndFilter('http://localhost:5000/api/non-conformance/reports', setNonConformanceReports, 'timestamp');
-    fetchAndFilter('http://localhost:5000/api/Regrind/all', setRegrindData, 'timestamp');
-    fetchAndFilter('http://localhost:5000/api/moisture-analyses', setMoistureAnalyses, 'timestamp');
-    fetchAndFilter('http://localhost:5000/api/lg4/lg4-data', setLg4Data, 'createdAt');
-    fetchAndFilter('http://localhost:5000/api/lg4_25/all', setLg4_25Data, 'createdAt');
-    fetchAndFilter('http://localhost:5000/api/sg4/all', setSg4Data, 'createdAt');
-    fetchAndFilter('http://localhost:5000/api/sg6/all', setSg6Data, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/shift/shifts', setShifts, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/non-conformance/reports', setNonConformanceReports, 'timestamp');
+    fetchAndFilter('http://18.197.69.165:5000/api/Regrind/all', setRegrindData, 'timestamp');
+    fetchAndFilter('http://18.197.69.165:5000/api/moisture-analyses', setMoistureAnalyses, 'timestamp');
+    fetchAndFilter('http://18.197.69.165:5000/api/visual-check/visual-checks', setVisualChecks, 'timestamp');
+    fetchAndFilter('http://18.197.69.165:5000/api/lg4/lg4-data', setLg4Data, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/lg4_25/all', setLg4_25Data, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/sg4/all', setSg4Data, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/sg6/all', setSg6Data, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/rejection-weights1', setRejectionWeights1Data, 'createdAt');
+    fetchAndFilter('http://18.197.69.165:5000/api/rejection-weights2', setRejectionWeights2Data, 'createdAt');
   }, [today]);
+
 
   return (
     <div className='app-layout'>
@@ -51,7 +69,7 @@ function DashboardPage() {
         </div>
       <h1 className='dashboard-title'>Savola Dashboard</h1>
       <h1 className='today'>TODAY({today})</h1>
-      <a href="http://localhost:5000/api/export-excel/save" download="اسم_الملف.xlsx" className="btn-download">
+      <a href="http://18.197.69.165:5000/api/export-excel/save" download="اسم_الملف.xlsx" className="btn-download">
           <button>Download Excel</button>
       </a>
       </section>
@@ -130,6 +148,8 @@ function DashboardPage() {
                 <th>lg4_25</th>
                 <th>sg4</th>
                 <th>sg6</th>
+                <th>lasagna</th>
+                <th>totalRegrind</th>
               </tr>
             </thead>
             <tbody>
@@ -141,6 +161,8 @@ function DashboardPage() {
                   <td>{item.lg4_25}</td>
                   <td>{item.sg4}</td>
                   <td>{item.sg6}</td>
+                  <td>{item.lasagna}</td>
+                  <td>{item.totalRegrind}</td>
                 </tr>
               ))}
             </tbody>
@@ -149,47 +171,6 @@ function DashboardPage() {
           <p>not found regrind for today</p>
         )}
       </section>
-{/* 
-      <section className='dashboard-section'>
-        <h2  className='dashboard-section-title'>Moisture Analyses</h2>
-        {moistureAnalyses.length > 0 ? (
-          <table>
-            <thead>
-              <tr>
-              <th>Date</th>
-              <th>Time</th>
-                <th>msa_lg4_values</th>
-                <th>msa_lg4_average</th>
-                <th>msa_lg4_25_values</th>
-                <th>msa_lg4_25_average</th>
-                <th>msa_sg4_values</th>
-                <th>msa_sg4_average</th>
-                <th>msa_sg6_values</th>
-                <th>msa_sg6_average</th>
-              </tr>
-            </thead>
-            <tbody>
-              {moistureAnalyses.map(analysis => (
-                <tr key={analysis._id}>
-                  <td>{new Date(analysis.timestamp).toLocaleDateString()}</td>
-                  <td>{new Date(analysis.timestamp).toLocaleTimeString()}</td>
-                  <td>{analysis.msa_lg4_values.join(', ')}</td>
-                  <td>{analysis.msa_lg4_average}</td>
-                  <td>{analysis.msa_lg4_25_values.join(', ')}</td>
-                  <td>{analysis.msa_lg4_25_average}</td>
-                  <td>{analysis.msa_sg4_values.join(', ')}</td>
-                  <td>{analysis.msa_sg4_average}</td>
-                  <td>{analysis.msa_sg6_values.join(', ')}</td>
-                  <td>{analysis.msa_sg6_average}</td>
-                  
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>not found moisture analyses for today</p>
-        )}
-      </section> */}
       <section className='dashboard-section moisture-analyses-section'>
     <h2 className='dashboard-section-title'>Moisture Analyses</h2>
     {moistureAnalyses.length > 0 ? (
@@ -200,13 +181,22 @@ function DashboardPage() {
                         {new Date(analysis.timestamp).toLocaleDateString()} - {new Date(analysis.timestamp).toLocaleTimeString()}
                     </h3>
                     <div className='analysis-data'>
+                    <div className='data-pair'>
+                            <span className='data-label'>MSA LG4 Average:</span>
+                            <span  className='data-value'>{analysis.productNames.lg4}</span>
+                        </div>
                         <div className='data-pair'>
                             <span className='data-label'>MSA LG4 Values:</span>
                             <span className='data-value'>{analysis.msa_lg4_values.join(', ')}</span>
                         </div>
+                      
                         <div className='data-pair'>
                             <span className='data-label'>MSA LG4 Average:</span>
                             <span className='data-value'>{analysis.msa_lg4_average}</span>
+                        </div>
+                        <div className='data-pair'>
+                            <span className='data-label'>MSA LG4.25 Values:</span>
+                            <span  className='data-value'>{analysis.productNames.lg4_25}</span>
                         </div>
                         <div className='data-pair'>
                             <span className='data-label'>MSA LG4.25 Values:</span>
@@ -218,11 +208,19 @@ function DashboardPage() {
                         </div>
                         <div className='data-pair'>
                             <span className='data-label'>MSA SG4 Values:</span>
+                            <span  className='data-value'>{analysis.productNames.sg4}</span>
+                        </div>
+                        <div className='data-pair'>
+                            <span className='data-label'>MSA SG4 Values:</span>
                             <span className='data-value'>{analysis.msa_sg4_values.join(', ')}</span>
                         </div>
                         <div className='data-pair'>
                             <span className='data-label'>MSA SG4 Average:</span>
                             <span className='data-value'>{analysis.msa_sg4_average}</span>
+                        </div>
+                        <div className='data-pair'>
+                            <span className='data-label'>MSA SG6 Values:</span>
+                            <span  className='data-value'>{analysis.productNames.sg6}</span>
                         </div>
                         <div className='data-pair'>
                             <span className='data-label'>MSA SG6 Values:</span>
@@ -240,9 +238,35 @@ function DashboardPage() {
         <p className='no-data'>No moisture analyses for today</p>
     )}
 </section>
-
+<section className='dashboard-section'>
+          <h2 className='dashboard-section-title'>Visual Checks</h2>
+          {visualChecks.length > 0 ? (
+            <div className="visual-check-container">
+              {visualChecks.map((record, index) => (
+                <div key={index} className="checklist-grid">
+                  <div className="checklist-header">Checklist - {new Date(record.timestamp).toLocaleString()}</div>
+                  {types.map(type => (
+                    <div key={type} className="type-header">{type.toUpperCase().replace('_25', '.25')}</div>
+                  ))}
+                  {checkListItems.map(item => (
+                    <React.Fragment key={item}>
+                      <div className="checklist-item">{item}</div>
+                      {types.map(type => (
+                        <div key={`${index}-${item}-${type}`} className="data-cell">
+                          {record[`${item}_${type}`] || 'N/A'}
+                        </div>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>not found visualChecks for today</p>
+          )}
+        </section>
       <section className='dashboard-section'>
-        <h2 className='dashboard-section-title'>PMVF</h2>
+        <h2 className='dashboard-section-title'>Weights</h2>
         <section>
           <h3>LG4 Data</h3>
           {lg4Data.length > 0 ? (
@@ -397,6 +421,79 @@ function DashboardPage() {
           )}
         </section>
       </section>
+      <section className='dashboard-section'>
+            <h2 className='dashboard-section-title'>Rejection Weights 1</h2>
+            {rejectionWeights1Data.length > 0 ? (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>type</th>
+                            <th>machineNo</th>
+                            <th>proper</th>
+                            <th>over</th>
+                            <th>under</th>
+                            <th>percentage</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rejectionWeights1Data.map(item => (
+                            <tr key={item._id}>
+                                 <td>{new Date(item.createdAt).toLocaleDateString()}</td>
+                      <td>{new Date(item.createdAt).toLocaleTimeString()}</td>
+                                <td>{item.type}</td>
+                                <td>{item.machineNo}</td>
+                                <td>{item.proper}</td>
+                                <td>{item.over}</td>
+                                <td>{item.under}</td>
+                                <td>{item.percentage}</td>
+                              
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p>No Rejection Weights 1 data for today.</p>
+            )}
+        </section>
+
+        <section className='dashboard-section'>
+            <h2 className='dashboard-section-title'>Rejection Weights 2</h2>
+            {rejectionWeights2Data.length > 0 ? (
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Date</th>
+                            <th>Time</th>
+                            <th>type</th>
+                            <th>machineNo</th>
+                            <th>proper</th>
+                            <th>over</th>
+                            <th>under</th>
+                            <th>percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rejectionWeights2Data.map(item => (
+                            <tr key={item._id}>
+                                <td>{new Date(item.createdAt).toLocaleDateString()}</td>
+                      <td>{new Date(item.createdAt).toLocaleTimeString()}</td>
+                      <td>{item.type}</td>
+                                <td>{item.machineNo}</td>
+                                <td>{item.proper}</td>
+                                <td>{item.over}</td>
+                                <td>{item.under}</td>
+                                <td>{item.percentage}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p>No Rejection Weights 2 data for today.</p>
+            )}
+        </section>
     </div>
     <Sidebar />
     </div>

@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://18.197.69.165:5000/api';
 
 const fetchData = async (endpoint) => {
   try {

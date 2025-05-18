@@ -44,7 +44,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  margin-left: 900px;
+  margin-left: 800px;
 }
 
 .filters input,
@@ -81,9 +81,9 @@
 }
 
 .users-container {
-  flex-grow: 1;
-  padding: 20px;
-  background: white;
-  min-height: 100vh;
-  font-family: "Segoe UI", sans-serif;
+
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+
 }

@@ -7,7 +7,7 @@ function PMVFPage() {
     <div className="pmvf-page">
       <Sidebar /> 
       <div className="pmvf-content">
-        <h2 className="pmvf-title">PMVF Options</h2>
+        <h2 className="pmvf-title">Weights Options</h2>
         <div className="buttons-container">
         <Link to="/lg4" className="pmvf-button lg4-button">
             LG4

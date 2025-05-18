@@ -17,7 +17,7 @@ function Shifts() {
       if (filters.date) params.date = filters.date;
       if (filters.userId) params.userId = filters.userId;
 
-      const res = await axios.get("http://localhost:5000/api/shift/shifts/search", { params });
+      const res = await axios.get("http://18.197.69.165:5000/api/shift/shifts/search", { params });
       setShifts(res.data);
     } catch (err) {
       console.error("Error fetching shifts:", err);

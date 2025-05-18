@@ -1,0 +1,14 @@
+/* الصفحة كلها */
+.app-layout {
+  display: flex;
+  background-color: #f4f6f8;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+/* المحتوى الرئيسي */
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}

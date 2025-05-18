@@ -10,8 +10,8 @@ function SG4() {
   const [searchDate, setSearchDate] = useState('');
   
 
-  const apiUrlAll = 'http://localhost:5000/api/sg4/all';
-  const apiUrlSearch = 'http://localhost:5000/api/sg4/search';
+  const apiUrlAll = 'http://18.197.69.165:5000/api/sg4/all';
+  const apiUrlSearch = 'http://18.197.69.165:5000/api/sg4/search';
 
   useEffect(() => {
     fetch(apiUrlAll)

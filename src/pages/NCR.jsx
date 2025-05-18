@@ -13,7 +13,7 @@ function NonConformanceReports() {
 
   const fetchAllReports = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/non-conformance/reports");
+      const res = await axios.get("http://18.197.69.165:5000/api/non-conformance/reports");
       setData(res.data);
     } catch (err) {
       console.error("Error fetching reports:", err);
@@ -28,7 +28,7 @@ function NonConformanceReports() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/non-conformance/reports/search?date=${date}`
+        `http://18.197.69.165:5000/api/non-conformance/reports/search?date=${date}`
       );
       setData(res.data);
     } catch (err) {
@@ -65,7 +65,7 @@ function NonConformanceReports() {
   <div className="image-box-ncr">
     <p><strong>Attachment:</strong></p>
     <img
-      src={`http://localhost:5000/${item.attachments.replace(/\\/g, '/')}`}
+      src={`http://18.197.69.165:5000/${item.attachments.replace(/\\/g, '/')}`}
       alt="Attachment"
       className="report-img-ncr"
     />

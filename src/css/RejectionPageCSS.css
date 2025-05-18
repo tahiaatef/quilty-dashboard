@@ -1,0 +1,71 @@
+
+
+
+
+/* PMVFCSS.css */
+.packaging-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+}
+
+.packaging-content {
+  flex-grow: 1;
+  padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.packaging-title {
+  font-size: 2.8em; /* Slightly larger title */
+  font-weight: 700; /* More prominent bold */
+  margin-bottom: 50px; /* Increased margin */
+  color: #37474f; /* Darker, more sophisticated gray */
+  text-align: center; /* Center the title */
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+  gap: 25px; /* Increased gap */
+  width: 90%; /* Limit the width of the buttons container */
+  max-width: 500px; /* Maximum width */
+}
+
+.packaging-button {
+  display: inline-flex; /* Use flex for better icon alignment if needed */
+  justify-content: center;
+  align-items: center;
+  padding: 18px 35px; /* Slightly larger buttons */
+  text-decoration: none;
+  color: white;
+  font-size: 1.15em; /* Slightly smaller font size for better fit */
+  font-weight: 600; /* Semi-bold */
+  border-radius: 10px; /* More rounded corners */
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+}
+
+.packaging-button:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.sg4-button {
+  background-color: #2979ff; /* Brighter blue */
+}
+
+.sg6-button {
+  background-color: #9c27b0; /* Richer purple */
+}
+
+.lg4-button {
+  background-color: #4caf50; /* More vibrant green */
+}
+
+.lg425-button {
+  background-color: #f44336; /* More intense red */
+}

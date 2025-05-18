@@ -7,9 +7,9 @@ function SG6Page() {
   const [searchDate, setSearchDate] = useState('');
 
   const fetchData = async (date) => {
-    let apiUrl = 'http://localhost:5000/api/sg6/all';
+    let apiUrl = 'http://18.197.69.165:5000/api/sg6/all';
     if (date) {
-      apiUrl = `http://localhost:5000/api/sg6/search?date=${date}`;
+      apiUrl = `http://18.197.69.165:5000/api/sg6/search?date=${date}`;
     }
 
     try {

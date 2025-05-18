@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "../css/sidebar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUsers, faClock, faExclamationTriangle, faRecycle, faSlidersH, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUsers, faClock, faExclamationTriangle,  faSlidersH, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar() {
   return (
@@ -30,10 +30,17 @@ function Sidebar() {
             <span>Shifts</span>
           </Link>
         </li>
+        
         <li className="sidebar-item">
-          <Link to="/msa" className="sidebar-button">
+          <Link to="/packaging" className="sidebar-button">
+            <FontAwesomeIcon icon={faCogs} className="sidebar-icon" />
+            <span>Packaging</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link to="/process" className="sidebar-button">
             <FontAwesomeIcon icon={faSlidersH} className="sidebar-icon" />
-            <span>MSA</span>
+            <span>Process</span>
           </Link>
         </li>
         <li className="sidebar-item">
@@ -43,18 +50,6 @@ function Sidebar() {
           </Link>
         </li>
         
-        <li className="sidebar-item">
-          <Link to="/pmvf" className="sidebar-button">
-            <FontAwesomeIcon icon={faCogs} className="sidebar-icon" />
-            <span>PMVF Options</span>
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/regrind" className="sidebar-button">
-            <FontAwesomeIcon icon={faRecycle} className="sidebar-icon" />
-            <span>Regrind</span>
-          </Link>
-        </li>
       
       </ul>
       <div className="sidebar-footer">
